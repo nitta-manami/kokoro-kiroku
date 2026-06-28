@@ -1,0 +1,45 @@
+<div class="min-h-screen bg-[#FAF8F5]">
+
+  <header class="relative flex justify-center py-6">
+    <h1 class="text-3xl font-bold text-stone-700">
+      おくすりの記録
+    </h1>
+
+    <%= link_to "← ホーム", home_path,
+        class: "absolute left-6 top-1/2 -translate-y-1/2 text-stone-500 hover:underline" %>
+  </header>
+
+  <main class="max-w-md mx-auto">
+
+    <div class="rounded-2xl bg-white p-8 shadow-sm">
+
+      <%= form_with model: @medication_record, local: true do |f| %>
+
+        <div class="mb-8">
+          <p class="mb-2 text-stone-700">服薬</p>
+
+          <div class="space-y-2">
+
+            <label class="flex items-center gap-2">
+              <%= f.radio_button :status, "taken" %>
+              飲めた
+            </label>
+
+            <label class="flex items-center gap-2">
+              <%= f.radio_button :status, "missed" %>
+              飲めなかった
+            </label>
+
+          </div>
+        </div>
+
+        <%= f.submit "保存",
+            class: "w-full rounded-full bg-orange-100 py-4 text-lg text-stone-700 shadow hover:bg-orange-200 transition" %>
+
+      <% end %>
+
+    </div>
+
+  </main>
+
+</div>
