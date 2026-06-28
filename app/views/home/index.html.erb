@@ -1,0 +1,58 @@
+<div class="min-h-screen bg-[#FAF8F5]">
+
+  <header class="relative flex justify-center py-6">
+    <h1 class="text-3xl font-bold text-stone-700">
+      こころきろく
+    </h1>
+
+    <%= link_to "ログアウト",
+    destroy_user_session_path,
+    data: { turbo_method: :delete },
+    class: "absolute right-6 top-1/2 -translate-y-1/2 text-stone-500 hover:underline" %>
+  </header>
+
+  <main class="max-w-3xl mx-auto px-6 py-10">
+
+    <div class="rounded-2xl bg-white p-8 shadow-sm">
+      <h2 class="text-3xl font-bold text-stone-700">
+        <%= current_user.name %>さん、おかえりなさい🌸
+      </h2>
+
+      <p class="mt-3 text-stone-500">
+        今日も無理せず、自分のペースで過ごしましょう。
+      </p>
+    </div>
+
+
+    <div class="mt-10 space-y-4">
+
+      <%= link_to "💊 おくすりを記録する", "#",
+        class: "block w-full rounded-xl bg-orange-100 py-4 text-center text-lg text-stone-700 shadow hover:bg-orange-200 transition" %>
+
+      <%= link_to "💊 おくすりの記録一覧", "#",
+        class: "block w-full rounded-xl bg-orange-100 py-4 text-center text-lg text-stone-700 shadow hover:bg-orange-200 transition" %>
+
+      <%= link_to "📝 体調を記録する", "#",
+        class: "block w-full rounded-xl bg-orange-100 py-4 text-center text-lg text-stone-700 shadow hover:bg-orange-200 transition" %>
+    
+      <%= link_to "📝 体調の記録一覧", "#",
+        class: "block w-full rounded-xl bg-orange-100 py-4 text-center text-lg text-stone-700 shadow hover:bg-orange-200 transition" %>
+    
+      <%= link_to "🤝 みんなの記録を見る", "#",
+        class: "block w-full rounded-xl bg-orange-100 py-4 text-center text-lg text-stone-700 shadow hover:bg-orange-200 transition" %>
+    </div>
+
+    <div class="mt-12 rounded-2xl bg-white p-6 shadow-sm">
+        <h3 class="text-xl font-semibold text-stone-700">
+        最近の記録
+        </h3>
+
+        <p class="mt-4 text-stone-500">
+          まだ記録はありません。
+        </p>
+    </div>
+
+
+  </main>
+
+</div>
