@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_06_29_102156) do
+ActiveRecord::Schema[8.1].define(version: 2026_06_29_195413) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -20,6 +20,15 @@ ActiveRecord::Schema[8.1].define(version: 2026_06_29_102156) do
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_health_records_on_user_id"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.bigint "health_record_id", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.index ["health_record_id"], name: "index_likes_on_health_record_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "medication_records", force: :cascade do |t|
@@ -45,5 +54,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_06_29_102156) do
   end
 
   add_foreign_key "health_records", "users"
+  add_foreign_key "likes", "health_records"
+  add_foreign_key "likes", "users"
   add_foreign_key "medication_records", "users"
 end

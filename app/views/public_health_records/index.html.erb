@@ -1,4 +1,5 @@
 <div class="max-w-2xl mx-auto px-6 py-8">
+
   <%= link_to "← ホームへ",
               home_path,
               class: "text-stone-500 hover:text-orange-600" %>
@@ -8,6 +9,7 @@
   </h2>
 
   <% if @health_records.any? %>
+
     <% @health_records.each do |health_record| %>
 
       <div class="bg-orange-50 border border-orange-200 rounded-xl shadow-sm p-5 mb-4">
@@ -24,9 +26,10 @@
             </p>
           </div>
 
-          <%= link_to "🤍 応援する",
-                      "#",
-                      class: "rounded border px-3 py-1 text-sm text-orange-500 hover:bg-orange-50" %>
+          <%= button_to "🤍 応援する (#{health_record.likes.count})",
+                        health_record_likes_path(health_record),
+                        method: :post,
+                        class: "rounded border px-3 py-1 text-sm text-orange-500 hover:bg-orange-50" %>
 
         </div>
 
