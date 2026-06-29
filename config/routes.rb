@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get "home", to: "home#index"
   get "terms", to: "pages#terms"
   get "privacy", to: "pages#privacy"
+  get "contact", to: "pages#contact"
 
   devise_for :users
 
