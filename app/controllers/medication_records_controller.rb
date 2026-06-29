@@ -1,4 +1,11 @@
 class MedicationRecordsController < ApplicationController
+  before_action :authenticate_user!
+
+  def index
+  @medication_records = current_user.medication_records
+                        .order(recorded_at: :desc)
+  end
+
   def new
     @medication_record = MedicationRecord.new
   end
