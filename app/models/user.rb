@@ -4,4 +4,5 @@ class User < ApplicationRecord
 
   has_many :medication_records, dependent: :destroy
   has_many :health_records, dependent: :destroy
+  has_many :likes, dependent: :destroy
 end
