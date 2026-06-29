@@ -7,5 +7,5 @@ Rails.application.routes.draw do
 
   root "static_pages#top"
 
-  resources :medication_records, only: [ :new, :create, :index ]
+  resources :medication_records, only: [ :new, :create, :index, :destroy ]
 end
