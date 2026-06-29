@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :health_records,
           only: [ :new, :create, :index, :edit, :update, :destroy ] do
   resources :likes,
-            only: [ :create ]
+            only: [ :create, :destroy ]
 end
 
 resources :public_health_records, only: [ :index ]
