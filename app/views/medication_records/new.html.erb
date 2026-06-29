@@ -1,17 +1,11 @@
 <div class="min-h-screen bg-[#FAF8F5]">
 
-  <header class="relative flex justify-center py-6">
-    <h1 class="text-3xl font-bold text-stone-700">
-      おくすりの記録
-    </h1>
-
-    <%= link_to "← ホーム", home_path,
-        class: "absolute left-6 top-1/2 -translate-y-1/2 text-stone-500 hover:underline" %>
-  </header>
-
   <main class="max-w-md mx-auto">
 
     <div class="rounded-2xl bg-white p-8 shadow-sm">
+      <h2 class="mb-8 text-center text-2xl font-bold text-stone-700">
+      おくすりの記録
+      </h1>
 
       <%= form_with model: @medication_record, local: true do |f| %>
 

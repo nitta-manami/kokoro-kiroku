@@ -23,10 +23,14 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
   </head>
 
-  <body>
+  <body class="bg-stone-50 min-h-screen flex flex-col">
+    <% if user_signed_in? %>
+      <%= render "shared/header" %>
+    <% end %>
+
     <% if notice.present? %>
       <div class="fixed top-6 left-1/2 z-50 w-full max-w-md -translate-x-1/2 transform">
-        <div class="flash-message mx-auto mt-6 max-w-md rounded-xl bg-green-50 border border-green-200 px-4 py-3 text-center text-green-700 shadow-sm">
+        <div class="flash-message mx-auto mt-6 max-w-md rounded-xl border border-green-200 bg-green-50 px-4 py-3 text-center text-green-700 shadow-sm">
           <%= notice %>
         </div>
       </div>
@@ -34,12 +38,16 @@
 
     <% if alert.present? %>
       <div class="fixed top-6 left-1/2 z-50 w-full max-w-md -translate-x-1/2 transform">
-        <div class="flash-message mx-auto mt-6 max-w-md rounded-xl bg-rose-50 border border-rose-200 px-4 py-3 text-center text-rose-700 shadow-sm">
+        <div class="flash-message mx-auto mt-6 max-w-md rounded-xl border border-rose-200 bg-rose-50 px-4 py-3 text-center text-rose-700 shadow-sm">
           <%= alert %>
         </div>
       </div>
     <% end %>
 
-    <%= yield %>
+    <main class="flex-grow">
+      <%= yield %>
+    </main>
+
+    <%= render "shared/footer" %>
   </body>
 </html>
