@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   get "privacy", to: "pages#privacy"
   get "contact", to: "pages#contact"
 
-  devise_for :users
+  devise_for :users, controllers: {
+  registrations: "users/registrations"
+  }
 
   get "static_pages/top"
 
