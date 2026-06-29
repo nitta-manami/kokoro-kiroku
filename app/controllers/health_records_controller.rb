@@ -34,6 +34,14 @@ class HealthRecordsController < ApplicationController
     end
   end
 
+  def destroy
+    @health_record = current_user.health_records.find(params[:id])
+
+    @health_record.destroy
+
+    redirect_to health_records_path, notice: "体調の記録を削除しました🌸"
+  end
+
   private
 
   def health_record_params
