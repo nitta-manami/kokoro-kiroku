@@ -2,8 +2,8 @@ class MedicationRecordsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-  @medication_records = current_user.medication_records
-                        .order(recorded_at: :desc)
+    @medication_records = current_user.medication_records
+                                      .order(recorded_at: :desc)
   end
 
   def new
@@ -20,6 +20,14 @@ class MedicationRecordsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @medication_record = current_user.medication_records.find(params[:id])
+
+    @medication_record.destroy
+
+    redirect_to medication_records_path, notice: "おくすりの記録を削除しました🌸"
   end
 
   private
