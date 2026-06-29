@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
+  get "pages/terms"
+  get "pages/privacy"
   get "home", to: "home#index"
+  get "terms", to: "pages#terms"
+  get "privacy", to: "pages#privacy"
 
   devise_for :users
 
