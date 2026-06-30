@@ -1,44 +1,33 @@
 <div class="min-h-screen bg-[#FAF8F5]">
+  <main class="max-w-md mx-auto py-10">
 
-  <header class="relative flex justify-center py-6">
-    <h1 class="text-3xl font-bold text-stone-700">
-      体調の記録を編集
-    </h1>
-
-    <%= link_to "← 一覧へ",
-        health_records_path,
-        class: "absolute left-6 top-1/2 -translate-y-1/2 text-stone-500 hover:underline" %>
-  </header>
-
-  <main class="max-w-md mx-auto">
-
-    <div class="rounded-2xl bg-white p-8 shadow-sm">
+    <div class="rounded-3xl bg-white p-8 shadow">
+      <h2 class="mb-8 text-center text-2xl font-bold text-stone-700">
+        体調の記録を編集
+      </h2>
 
       <%= form_with model: @health_record, local: true do |f| %>
 
         <div class="mb-8">
-          <%= f.label :content,
-                      "今日の体調",
-                      class: "mb-2 block text-stone-700" %>
-
           <%= f.text_area :content,
-                          rows: 6,
-                          maxlength: 200,
-                          placeholder: "今日はどんな一日でしたか？",
-                          class: "w-full rounded-lg border border-stone-300 p-3 focus:border-orange-300 focus:outline-none" %>
+              rows: 6,
+              maxlength: 200,
+              placeholder: "今日はどんな一日でしたか？",
+              class: "w-full rounded-xl border border-stone-300 p-3 focus:border-orange-300 focus:outline-none" %>
 
-          <p class="mt-2 text-sm text-stone-500">
-            200文字以内で入力してください。
+          <p class="mt-2 text-center text-sm text-stone-500">
+            200文字以内で入力できます🌸
           </p>
         </div>
 
-        <%= f.submit "更新する",
-            class: "w-full rounded-full bg-orange-100 py-4 text-lg text-stone-700 shadow hover:bg-orange-200 transition" %>
+        <div class="flex justify-center">
+          <%= f.submit "更新",
+              class: "w-48 rounded-full bg-orange-100 py-4 text-lg text-stone-700 shadow transition hover:bg-orange-200" %>
+        </div>
 
       <% end %>
 
     </div>
 
   </main>
-
 </div>

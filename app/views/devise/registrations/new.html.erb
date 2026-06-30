@@ -1,73 +1,75 @@
 <div class="min-h-screen bg-[#FAF8F5] flex items-center justify-center">
-  <div class="w-full max-w-md bg-white rounded-xl shadow-md p-8">
-    <header class="py-8 text-center">
+  <div class="w-full max-w-md rounded-3xl bg-white p-8 shadow">
+
+    <header class="pb-4 text-center">
       <%= link_to root_path do %>
         <h1 class="text-3xl font-bold text-stone-700">
-        こころきろく
+          こころきろく
         </h1>
       <% end %>
     </header>
-    
-    <h2 class="text-3xl font-bold text-center mb-8">
+
+    <h2 class="mb-8 text-center text-2xl font-bold text-stone-700">
       新規登録
     </h2>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
       <%= render "devise/shared/error_messages", resource: resource %>
-    
 
-    <div class="mb-6">
-      <%= f.label :name, "ニックネーム" %>
-      <%= f.text_field :name,
-        autofocus: true,
-        class: "w-full rounded-lg border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-200" %>
-    </div>
+      <div class="mb-6">
+        <%= f.label :name, "ニックネーム", class: "mb-2 block text-stone-700" %>
 
-    <div class="mb-6">
-      <p class="mb-2">
-        <%= f.label :email, "メールアドレス" %>
-      </p>
+        <%= f.text_field :name,
+            autofocus: true,
+            class: "w-full rounded-xl border border-stone-300 px-4 py-3 focus:border-orange-300 focus:outline-none" %>
+      </div>
 
-      <%= f.email_field :email,
-        autofocus: true,
-        autocomplete: "email",
-        class: "w-full rounded-lg border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-200" %>
-    </div>
+      <div class="mb-6">
+        <%= f.label :email, "メールアドレス", class: "mb-2 block text-stone-700" %>
 
-    <div class="mb-6">
-      <p class="mb-2"><%= f.label :password, "パスワード" %></p>
+        <%= f.email_field :email,
+            autocomplete: "email",
+            class: "w-full rounded-xl border border-stone-300 px-4 py-3 focus:border-orange-300 focus:outline-none" %>
+      </div>
 
-      <% if @minimum_password_length %>
-        <p class="text-sm text-gray-500 mb-2">
-        ※<%= @minimum_password_length %>文字以上で入力してください
-        </p>
-      <% end %>
+      <div class="mb-6">
+        <%= f.label :password, "パスワード", class: "mb-2 block text-stone-700" %>
 
-      <%= f.password_field :password,
-        autocomplete: "new-password",
-        class: "w-full rounded-lg border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-200" %>
-    </div>
+        <% if @minimum_password_length %>
+          <p class="mb-2 text-sm text-stone-500">
+            <%= @minimum_password_length %>文字以上で入力してください。
+          </p>
+        <% end %>
 
-    <div class="mb-6">
-      <p class="mb-2"><%= f.label :password_confirmation, "パスワード（確認）" %></p>
-      <%= f.password_field :password_confirmation,
-        autocomplete: "new-password",
-        class: "w-full rounded-lg border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-200" %>
-    </div>
+        <%= f.password_field :password,
+            autocomplete: "new-password",
+            class: "w-full rounded-xl border border-stone-300 px-4 py-3 focus:border-orange-300 focus:outline-none" %>
+      </div>
 
-    <%= f.submit "新規登録",
-    class: "block w-full rounded-full bg-orange-100 py-4 mt-6 text-center text-xl text-stone-700 shadow hover:bg-orange-200 transition" %>
+      <div class="mb-8">
+        <%= f.label :password_confirmation, "パスワード（確認）", class: "mb-2 block text-stone-700" %>
+
+        <%= f.password_field :password_confirmation,
+            autocomplete: "new-password",
+            class: "w-full rounded-xl border border-stone-300 px-4 py-3 focus:border-orange-300 focus:outline-none" %>
+      </div>
+
+      <div class="flex justify-center">
+        <%= f.submit "新規登録",
+            class: "w-48 rounded-full bg-orange-100 py-4 text-lg text-stone-700 shadow transition hover:bg-orange-200" %>
+      </div>
 
     <% end %>
 
     <div class="mt-8 text-center">
       <p class="text-stone-500">
-        すでにアカウントをお持ちの方は
+        すでにアカウントをお持ちの方
       </p>
 
       <%= link_to "ログイン",
-        new_user_session_path,
-        class: "text-[#D8A7B1] font-semibold hover:underline" %>
+          new_user_session_path,
+          class: "font-semibold text-[#D8A7B1] hover:underline" %>
     </div>
 
   </div>
