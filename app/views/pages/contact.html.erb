@@ -1,33 +1,24 @@
 <div class="min-h-screen bg-[#FAF8F5]">
+  <main class="mx-auto max-w-3xl px-6 py-10">
 
-  <main class="max-w-3xl mx-auto px-6 py-10">
-
-    <%= link_to "← ホームへ",
-                root_path,
-                class: "text-stone-500 hover:text-orange-600" %>
-
-    <div class="mt-6 rounded-2xl bg-white p-10 shadow-sm">
-
-      <h1 class="mb-8 text-center text-3xl font-bold text-stone-700">
+    <div class="rounded-3xl bg-white p-8 shadow">
+      <h2 class="mb-8 text-center text-2xl font-bold text-stone-700">
         お問い合わせ
-      </h1>
+      </h2>
 
-      <p class="text-center text-stone-700 leading-8">
-       「こころきろく」をより良いサービスにするため<br>
+      <p class="text-center leading-8 text-stone-700">
+        「こころきろく」をより良いサービスにするため<br>
         ご意見・ご要望・不具合などがございましたら<br>
-        お気軽にお問い合わせください。
+        お気軽にお問い合わせください
       </p>
 
-      <div class="mt-10 text-center">
-
+      <div class="mt-10 flex justify-center">
         <%= link_to "お問い合わせフォームへ",
-                    "#",
-                    class: "inline-block rounded-full bg-orange-100 px-8 py-3 text-stone-700 shadow hover:bg-orange-200 transition" %>
-
+            "#",
+            class: "w-56 rounded-full bg-orange-100 py-3 text-center text-stone-700 shadow transition hover:bg-orange-200" %>
       </div>
 
     </div>
 
   </main>
-
 </div>

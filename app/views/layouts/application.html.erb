@@ -6,6 +6,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="application-name" content="Myapp">
     <meta name="mobile-web-app-capable" content="yes">
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -18,27 +19,31 @@
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
 
-    <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
   </head>
 
-  <body class="bg-stone-50 min-h-screen flex flex-col">
+  <body class="min-h-screen bg-stone-50 flex flex-col">
+
     <% if user_signed_in? %>
       <%= render "shared/header" %>
     <% end %>
 
     <% if notice.present? %>
-      <div class="fixed top-6 left-1/2 z-50 w-full max-w-md -translate-x-1/2 transform">
-        <div class="flash-message mx-auto mt-6 max-w-md rounded-xl border border-green-200 bg-green-50 px-4 py-3 text-center text-green-700 shadow-sm">
+      <div class="fixed left-1/2 top-6 z-50 w-full max-w-md -translate-x-1/2 transform">
+        <div
+          data-controller="flash"
+          class="flash-message mx-auto rounded-xl border border-green-200 bg-green-50 px-4 py-3 text-center text-green-700 shadow-sm">
           <%= notice %>
         </div>
       </div>
     <% end %>
 
     <% if alert.present? %>
-      <div class="fixed top-6 left-1/2 z-50 w-full max-w-md -translate-x-1/2 transform">
-        <div class="flash-message mx-auto mt-6 max-w-md rounded-xl border border-rose-200 bg-rose-50 px-4 py-3 text-center text-rose-700 shadow-sm">
+      <div class="fixed left-1/2 top-6 z-50 w-full max-w-md -translate-x-1/2 transform">
+        <div
+          data-controller="flash"
+          class="flash-message mx-auto rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-center text-red-700 shadow-sm">
           <%= alert %>
         </div>
       </div>
@@ -49,5 +54,6 @@
     </main>
 
     <%= render "shared/footer" %>
+
   </body>
 </html>
