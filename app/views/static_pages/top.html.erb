@@ -13,15 +13,6 @@
 
   <div class="mt-14 w-full max-w-md px-6">
 
-    <% if user_signed_in? %>
-
-    <%= link_to "ログアウト",
-        destroy_user_session_path,
-        data: { turbo_method: :delete },
-        class: "block w-full rounded-full bg-red-200 py-4 text-center text-xl text-stone-700 shadow hover:bg-red-300 transition" %>
-
-    <% else %>
-
     <%= link_to "ログイン",
         new_user_session_path,
         class: "block w-full rounded-full bg-green-200 py-4 text-center text-xl text-stone-700 shadow hover:bg-green-300 transition" %>
@@ -29,8 +20,6 @@
     <%= link_to "新規登録",
         new_user_registration_path,
         class: "block w-full rounded-full bg-orange-100 py-4 mt-6 text-center text-xl text-stone-700 shadow hover:bg-orange-200 transition" %>
-
-    <% end %>
 
   </div>
 
