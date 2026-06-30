@@ -2,8 +2,8 @@ class HealthRecordsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @health_records = current_user.health_records
-                                 .order(created_at: :desc)
+   @health_records = current_user.health_records
+                              .order(created_at: :desc)
   end
 
   def new

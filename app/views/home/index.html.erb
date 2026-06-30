@@ -23,7 +23,7 @@
       medication_records_path,
       class: "block w-full rounded-xl bg-orange-100 py-4 text-center text-lg text-stone-700 shadow hover:bg-orange-200 transition" %>
 
-      <%= link_to "体調を記録する",
+      <%= link_to "📝 体調を記録する",
       new_health_record_path,
       class: "block w-full rounded-xl bg-orange-100 py-4 text-center text-lg text-stone-700 shadow hover:bg-orange-200 transition" %>
     
@@ -36,16 +36,30 @@
       class: "block w-full rounded-xl bg-orange-100 py-4 text-center text-lg text-stone-700 shadow hover:bg-orange-200 transition" %>
     </div>
 
-    <div class="mt-12 rounded-2xl bg-white p-6 shadow-sm">
-        <h3 class="text-xl font-semibold text-stone-700">
+    <div class="mt-8 rounded-3xl bg-white p-8 shadow">
+      <h2 class="mb-6 text-2xl font-bold text-stone-700">
         最近の記録
-        </h3>
+      </h2>
 
-        <p class="mt-4 text-stone-500">
-          まだ記録はありません。
+      <% if @recent_health_records.any? %>
+      <% @recent_health_records.each do |record| %>
+      <div class="mb-4 border-b border-stone-100 pb-4 last:border-b-0">
+        <p class="text-sm text-stone-500">
+          <%= record.created_at.strftime("%Y/%m/%d") %>
         </p>
-    </div>
 
+        <p class="mt-2 text-stone-700">
+          <%= truncate(record.content, length: 50) %>
+        </p>
+      </div>
+    <% end %>
+
+  <% else %>
+    <p class="text-stone-500">
+      まだ記録はありません。
+    </p>
+  <% end %>
+</div>
 
   </main>
 
